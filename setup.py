@@ -16,6 +16,8 @@
 #
 """pushstore_parser.py Setup Script"""
 
+from __future__ import print_function
+from __future__ import absolute_import
 from setuptools import setup
 
 
@@ -45,7 +47,12 @@ setup(
         'Operating System :: POSIX :: Linux',
         'Operating System :: Microsoft :: Windows',
         'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7'],
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5'],
 
     keywords='iOS apple push notification service forensics device security mobile parser',
 

@@ -16,6 +16,10 @@
 #
 """Python script to parse Apple Push Notification ("APN") .pushstore files"""
 
+
+from __future__ import absolute_import
+from __future__ import print_function
+
 import argparse
 import datetime
 import sys
@@ -68,7 +72,7 @@ class PushStoreParser(object):
             self.plist = biplist.readPlist(args.pushstore_file)
 
         except (biplist.InvalidPlistException,
-                biplist.NotBinaryPlistException), err:
+                biplist.NotBinaryPlistException) as err:
             self.error("Not a plist: %s" % err)
             return 1
 
@@ -85,7 +89,7 @@ class PushStoreParser(object):
 
         pointer_to_entries = self.load_from_location(top)
 
-        print self.delimit.join(DEFAULT_KEYS)
+        print(self.delimit.join(DEFAULT_KEYS))
 
         for entry_offset in pointer_to_entries['objects']:
 
@@ -94,7 +98,7 @@ class PushStoreParser(object):
 
             formatted = self.format_entry(entry_dict)
 
-            print self.delimit.join([formatted[x] for x in DEFAULT_KEYS])
+            print(self.delimit.join([formatted[x] for x in DEFAULT_KEYS]))
 
         return 0
 

@@ -20,16 +20,19 @@ from __future__ import print_function
 from __future__ import absolute_import
 from setuptools import setup
 
+import os
+
+def read(fname):
+
+    """Read file"""
+    
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
     name='pushstore-parser',
     version='0.1.0',
     description='Python script to parse Apple Push Notification ("APN") .pushstore files',
-    long_description=('pushstore_parser.py is designed to parse ".pushstore" files found ',
-                      'on iOS devices for potential forensic artifacts. These files are ',
-                      'typically found in the /var/mobile/Library/SpringBoard/PushStore/ ',
-                      'directory, and are stored in a binary Property List ("plist") format. ',
-                      'Specifically, they are NSKeyedArchiver formatted plists.'),
+    long_description=read('README.md'),
 
     url='https://github.com/jakev/pushstore-parser',
     download_url='https://github.com/jakev/pushstore-parser',
@@ -49,8 +52,6 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.2',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5'],
 
